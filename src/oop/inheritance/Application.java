@@ -18,12 +18,31 @@ import oop.inheritance.ingenico.IngenicoPrinter;
 import oop.inheritance.verifone.v240m.VerifoneV240mDisplay;
 
 public class Application {
-
+    private static Application application;
     private CommunicationType communicationType = CommunicationType.ETHERNET;
     private SupportedTerminal supportedTerminal;
 
-    public Application(SupportedTerminal supportedTerminal) {
+    private Application(SupportedTerminal supportedTerminal) {
         this.supportedTerminal = supportedTerminal;
+    }
+
+    public static Application getApplication(SupportedTerminal supportedTerminal){
+        if (application == null){
+            application = new Application(supportedTerminal);
+        }
+        else{
+            System.out.println("No se puede crear");
+        }
+
+        return application;
+    }
+    public Application clone(){
+        try {
+            throw new CloneNotSupportedException();
+        } catch (CloneNotSupportedException ex) {
+            System.out.println("No se puede clonar ");
+        }
+        return null;
     }
 
     public void showMenu() {

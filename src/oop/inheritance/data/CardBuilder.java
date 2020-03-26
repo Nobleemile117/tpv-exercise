@@ -1,12 +1,10 @@
 package oop.inheritance.data;
 
-public class CardBuilder {
+
+public class CardBuilder implements Builder{
     private String account;
     private ExpirationDate expirationDate;
     private EntryMode entryMode;
-
-    CardBuilder() {
-    }
 
     public CardBuilder account(String account) {
         this.account = account;
@@ -28,6 +26,11 @@ public class CardBuilder {
 
     public Card build() {
         return new Card(account, expirationDate, entryMode);
+    }
+
+    @Override
+    public Card builder() {
+        return null;
     }
 }
 

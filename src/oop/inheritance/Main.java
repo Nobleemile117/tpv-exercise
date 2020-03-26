@@ -26,9 +26,7 @@ public class Main {
                 case "4":
                     application.showConfiguration();
                     break;
-                case "5":
-                    application.showConfiguration();
-                    break;
+
             }
         }
     }
